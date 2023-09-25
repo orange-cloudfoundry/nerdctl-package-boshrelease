@@ -32,7 +32,7 @@ jobs:
         with:
           repo: carvel-dev/vendir
           tag: v0.34.6
-#          cache: enable
+          cache: enable
           extension-matching: disable
           chmod: 0755
           rename-to: vendir
