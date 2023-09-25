@@ -12,10 +12,27 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: setup bosh cli
-        uses: orange-cloudfoundry/bosh-release-action@v5
+      # TODO: add caching for cli downloads, see https://github.com/marketplace/actions/cache
+      - name: Install bosh-cli
+        #See https://github.com/marketplace/actions/install-a-binary-from-github-releases
+        uses: jaxxstorm/action-install-gh-release@v1.10.0
         with:
-          entrypoint: cat # avoid running the default entrypoint which tries to execute the bosh-release-action script
+          repo: cloudfoundry/bosh-cli
+          tag: v7.4.0
+
+      - name: Install vendir cli
+        #See https://github.com/marketplace/actions/install-a-binary-from-github-releases
+        uses: jaxxstorm/action-install-gh-release@v1.10.0
+        with:
+          repo: carvel-dev/vendir
+          tag: v0.34.6
+
+      - name: Install yq cli
+        #See https://github.com/marketplace/actions/install-a-binary-from-github-releases
+        uses: jaxxstorm/action-install-gh-release@v1.10.0
+        with:
+          repo: mikefarah/yq
+          tag: v4.34.2
 
       - name: vendor-add-blob
         env:
