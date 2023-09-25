@@ -52,6 +52,7 @@ jobs:
         run: |
           set -x # enable traces
           pwd
+          find .
           # configure git
           git config --global user.name "actions/k3s-boshrelease"
           git config --global user.email "<>"
