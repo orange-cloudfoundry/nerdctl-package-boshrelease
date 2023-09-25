@@ -13,7 +13,7 @@ function addBlobOnChecksumChange() {
   if [ "${blob_checksum}" != "sha256:${src_checksum}" ]; then
     bosh add-blob ${src} ${target}
   else
-    echo "skipping blob creation with exiting checksum: ${src_checksum}"
+    echo "skipping blob creation with existing checksum: ${src_checksum}"
   fi
 }
 
