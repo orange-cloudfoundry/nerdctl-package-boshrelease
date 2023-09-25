@@ -10,6 +10,7 @@
     'manifests/**',
     'jobs/**',
   ],
+  baseBranches: [ "master"], //See also possible support for multiple base branches, one per K8S minor version https://docs.renovatebot.com/configuration-options/#basebranches
   packageRules: [
     {
       matchDatasources: [
@@ -47,6 +48,7 @@
         'k3s-io/k3s',
       ],
       separateMinorPatch: true,
+      separateMultipleMinor: true, // Pending merge of https://github.com/renovatebot/renovate/pull/24538 to be effective
     },
   ],
   regexManagers: [
