@@ -46,7 +46,7 @@
       matchPackageNames: [
         'k3s-io/k3s',
       ],
-      separatePatchReleases: true,
+      separateMinorPatch: true,
     },
   ],
   regexManagers: [
