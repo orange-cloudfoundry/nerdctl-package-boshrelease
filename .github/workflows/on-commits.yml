@@ -13,7 +13,7 @@ jobs:
           fetch-depth: 0
 
       - name: setup bosh cli
-        uses: "orangeopensource/bosh-release-action:v5"
+        uses: orange-cloudfoundry/bosh-release-action@v5
         with:
           entrypoint: cat # avoid running the default entrypoint which tries to execute the bosh-release-action script
 
