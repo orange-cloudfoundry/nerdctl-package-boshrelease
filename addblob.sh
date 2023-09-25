@@ -10,7 +10,7 @@ function addBlobOnChecksumChange() {
   target="$2"
   blob_checksum=$(cat config/blobs.yml  | yq .'"'${target}'"'.sha)
   src_checksum=$(cat "${src}"  | sha256sum |  cut -d " " -f1)
-  if [ "${blob_checksum}" != "${src_checksum}" ]; then
+  if [ "${blob_checksum}" != "sha256:${src_checksum}" ]; then
     bosh add-blob ${src} ${target}
   else
     echo "skipping blob creation with exiting checksum: ${src_checksum}"
