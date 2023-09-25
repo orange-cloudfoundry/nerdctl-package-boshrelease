@@ -63,7 +63,7 @@ jobs:
           git add vendir.lock
           # FIXME: optimize for idem potentency 
           ./addblob.sh
-          git add config/blobs.yaml
+          git add config/blobs.yml
           git commit -a -m "updating blobs"
           remote_repo="https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@${GITHUB_SERVER_URL#https://}/${GITHUB_REPOSITORY}.git"
           git push ${remote_repo} HEAD:main
