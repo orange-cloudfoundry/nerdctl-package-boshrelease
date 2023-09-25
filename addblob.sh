@@ -13,7 +13,7 @@ function addBlobOnChecksumChange() {
   if [ "${blob_checksum}" != "sha256:${src_checksum}" ]; then
     bosh add-blob ${src} ${target}
   else
-    echo "skipping blob creation with existing checksum: ${src_checksum}"
+    echo "skipping blob creation for ${target} with existing checksum: ${src_checksum}"
   fi
 }
 
@@ -35,7 +35,7 @@ popd
 addBlobOnChecksumChange src/github.com/containerd/nerdctl/nerdctl nerdctl/nerdctl
 
 pushd src
-curl -L https://dl.k8s.io/release/v1.24.9/bin/linux/amd64/kubectl --output ./src/kubectl
+curl -LO https://dl.k8s.io/release/v1.24.9/bin/linux/amd64/kubectl
 chmod ugo+x kubectl
 popd
 addBlobOnChecksumChange src/kubectl kubectl/kubectl
