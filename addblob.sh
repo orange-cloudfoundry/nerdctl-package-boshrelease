@@ -1,5 +1,6 @@
 #!/bin/bash
 set -x
+set -e # exit on non-zero status
 
 # params
 # $1: src
