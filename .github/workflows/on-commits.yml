@@ -19,6 +19,12 @@ jobs:
         with:
           repo: cloudfoundry/bosh-cli
           tag: v7.4.0
+          cache: enable
+          extension-matching: disable
+          chmod: 0755
+
+          # searching for bosh-cli-7.4.0-linux-amd64 with (linux|x86_64|x64|amd64).*(linux|x86_64|x64|amd64).*.(tar.gz|zip)
+          #               bosh-cli-7.4.0-linux-amd64
 
       - name: Install vendir cli
         #See https://github.com/marketplace/actions/install-a-binary-from-github-releases
@@ -26,6 +32,7 @@ jobs:
         with:
           repo: carvel-dev/vendir
           tag: v0.34.6
+          cache: enable
 
       - name: Install yq cli
         #See https://github.com/marketplace/actions/install-a-binary-from-github-releases
@@ -33,6 +40,7 @@ jobs:
         with:
           repo: mikefarah/yq
           tag: v4.34.2
+          cache: enable
 
       - name: vendor-add-blob
         env:
