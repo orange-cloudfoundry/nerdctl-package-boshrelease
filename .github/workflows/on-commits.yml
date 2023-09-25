@@ -1,4 +1,4 @@
-name: vendor-add-blob
+name: vendor-add-blob-create-dev-release
 
 on:
   push:
@@ -69,7 +69,11 @@ jobs:
           ! git commit -a -m "updating blobs" && \
            git push ${remote_repo} HEAD:master
       
-          
+
+      # TODO: optimize to only create a dev release if the blobs.yaml file has some changes
+      # Possibly by setting an env var and checking it into next step
+      # See https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#setting-an-environment-variable
+      # and if clause https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsif
       - name: create bosh dev release
         id: create-bosh-release
         uses: orange-cloudfoundry/bosh-release-action@v2 # will create dev release when pushed git ref is not a tag
@@ -79,6 +83,12 @@ jobs:
           AWS_BOSH_SECRET_ACCES_KEY: ${{ secrets.AWS_BOSH_SECRET_ACCES_KEY }}
 
       # See https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts
+      # This creates a zip file containing the k3s-master.tgz file
+
+      # See https://github.com/actions/upload-artifact#zipped-artifact-downloads
+      # > There is currently no way to download artifacts after a workflow run finishes in a format other than a zip or
+      # > to download artifact contents individually. One of the consequences of this limitation is that if a zip is
+      # > uploaded during a workflow run and then downloaded from the UI, there will be a double zip created.
       - name: Archive bosh dev release tgz
         uses: actions/upload-artifact@v3
         with:
