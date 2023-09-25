@@ -51,6 +51,7 @@ jobs:
           AWS_BOSH_SECRET_ACCES_KEY: ${{ secrets.AWS_BOSH_SECRET_ACCES_KEY }}
         run: |
           set -x # enable traces
+          pwd
           # configure git
           git config --global user.name "actions/k3s-boshrelease"
           git config --global user.email "<>"
