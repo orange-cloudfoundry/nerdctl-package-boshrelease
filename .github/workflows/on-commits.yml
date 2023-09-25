@@ -1,0 +1,42 @@
+name: build-and-release
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: orangeopensource/bosh-release-action:v5
+      # FIXME: change entry point
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: vendor-add-blob
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          AWS_BOSH_ACCES_KEY_ID: ${{ secrets.AWS_BOSH_ACCES_KEY_ID }}
+          AWS_BOSH_SECRET_ACCES_KEY: ${{ secrets.AWS_BOSH_SECRET_ACCES_KEY }}
+
+        with:
+          entrypoint: cat # avoid running the default entrypoint which tries to execute the bosh-release-action script
+        run: |
+          set -x # enable traces
+          # configure git
+          git config --global user.name "actions/k3s-boshrelease"
+          git config --global user.email "<>"
+          git config --global --add safe.directory /github/workspace
+          export VENDIR_GITHUB_API_TOKEN="${GITHUB_TOKEN}"
+          ./vendor.sh
+          git add vendir.lock
+          # FIXME: optimize for idem potentency 
+          ./addblob.sh
+          git add config/blobs.yaml
+          git commit -a -m "updating blobs"
+          remote_repo="https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@${GITHUB_SERVER_URL#https://}/${GITHUB_REPOSITORY}.git"
+          git push ${remote_repo} HEAD:main
+      
+
