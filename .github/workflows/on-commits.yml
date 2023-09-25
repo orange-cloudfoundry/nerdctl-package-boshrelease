@@ -19,7 +19,6 @@ jobs:
         with:
           repo: cloudfoundry/bosh-cli
           tag: v7.4.0
-          cache: enable
           extension-matching: disable
           chmod: 0755
 
@@ -32,7 +31,6 @@ jobs:
         with:
           repo: carvel-dev/vendir
           tag: v0.34.6
-          cache: enable
           extension-matching: disable
           chmod: 0755
           rename-to: vendir
@@ -43,7 +41,6 @@ jobs:
         with:
           repo: mikefarah/yq
           tag: v4.34.2
-          cache: enable
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # reduce potential rate limiting
 
