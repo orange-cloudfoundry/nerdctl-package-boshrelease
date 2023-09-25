@@ -3,14 +3,11 @@ set -x
 set -e # exit on non-zero status
 
 # params
-# $1: src
-# $2: target
+# $1: target
+# $2: src
 function addBlobOnChecksumChange() {
-  src="$1"
-  target="$2"
-  pwd
-  ls -al config/blobs.yml
-  cat config/blobs.yml
+  target="$1"
+  src="$2"
   blob_checksum=$(cat config/blobs.yml  | yq .'"'${src}'"'.sha)
   src_checksum=$(cat "${src}"  | sha256sum |  cut -d " " -f1)
   if [ "${blob_checksum}" != "${src_checksum}" ]; then
