@@ -11,7 +11,7 @@ function addBlobOnChecksumChange() {
   pwd
   ls -al config/blobs.yml
   cat config/blobs.yml
-  blob_checksum=$(cat config/blobs.yml  | yq ."${src}".sha)
+  blob_checksum=$(cat config/blobs.yml  | yq .'"'${src}'"'.sha)
   src_checksum=$(cat "${src}"  | sha256sum |  cut -d " " -f1)
   if [ "${blob_checksum}" != "${src_checksum}" ]; then
     bosh add-blob ${src} ${target}
