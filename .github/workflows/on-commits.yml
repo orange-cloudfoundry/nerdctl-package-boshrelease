@@ -1,4 +1,4 @@
-name: build-and-release
+name: vendor-add-blob
 
 on:
   push:
@@ -6,9 +6,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      image: orangeopensource/bosh-release-action:v5
-      # FIXME: change entry point
     steps:
       - name: checkout
         uses: actions/checkout@v2
@@ -23,6 +20,7 @@ jobs:
 
         with:
           entrypoint: cat # avoid running the default entrypoint which tries to execute the bosh-release-action script
+        uses: "orangeopensource/bosh-release-action:v5"
         run: |
           set -x # enable traces
           # configure git
