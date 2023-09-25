@@ -35,6 +35,7 @@ jobs:
           cache: enable
           extension-matching: disable
           chmod: 0755
+          rename-to: vendir
 
       - name: Install yq cli
         #See https://github.com/marketplace/actions/install-a-binary-from-github-releases
@@ -43,6 +44,8 @@ jobs:
           repo: mikefarah/yq
           tag: v4.34.2
           cache: enable
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # reduce potential rate limiting
 
       - name: vendor-add-blob
         env:
@@ -51,8 +54,8 @@ jobs:
           AWS_BOSH_SECRET_ACCES_KEY: ${{ secrets.AWS_BOSH_SECRET_ACCES_KEY }}
         run: |
           set -x # enable traces
-          pwd
-          find .
+          #pwd
+          #find .
           # configure git
           git config --global user.name "actions/k3s-boshrelease"
           git config --global user.email "<>"
