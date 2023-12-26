@@ -34,10 +34,7 @@ popd
 
 addBlobOnChecksumChange src/github.com/containerd/nerdctl/nerdctl nerdctl/nerdctl
 
-pushd src
-curl -LO https://dl.k8s.io/release/v1.24.9/bin/linux/amd64/kubectl
-chmod ugo+x kubectl
-popd
-addBlobOnChecksumChange src/kubectl kubectl/kubectl
+chmod ugo+x src/github.com/kubernetes/kubectl/kubectl
+addBlobOnChecksumChange src/github.com/kubernetes/kubectl/kubectl kubectl/kubectl
 
 
