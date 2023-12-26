@@ -1,9 +1,10 @@
 # BOSH release for k3s
-
-<p><img src="https://k3s.io/images/logo-k3s.svg" alt="k3s Logo" /></p>
-<p><img src="https://www.cloudfoundry.org/wp-content/uploads/2017/10/CFF-BOSH-Full-Color-1.png" alt="bosh Logo" /></p>
-
-
+<table border="0" CELLPADDING=”10″  WIDTH=”300p″ ALIGN=”CENTER”>
+  <tr>
+    <th><img src="https://k3s.io/img/k3s-logo-light.svg" height="100p" alt="k3s Logo" /></th>
+    <th><img src="https://www.cloudfoundry.org/wp-content/uploads/2017/10/CFF-BOSH-Full-Color-1.png" height="100p" alt="Bosh Logo" /></th>
+  </tr>
+</table>
 
 
 This BOSH release and deployment manifest deploy a cluster of k3s
@@ -28,6 +29,11 @@ The aim of the bosh release:
     - terraform bosh release https://github.com/orange-cloudfoundry/terraform-release
     - database bosh releases for backend (posgres / mysql /etcd)
     - generic scripting release (if low level scripting is required) https://github.com/orange-cloudfoundry/generic-scripting-release
+
+## K3s compatibility matrix
+
+Details about each embedded component are available at 
+  https://www.suse.com/suse-k3s/support-matrix/all-supported-versions/k3s-v1-28/
 
 ## design overview
 
