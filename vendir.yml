@@ -7,6 +7,15 @@ directories:
   contents:
 
   # validates checksums automatically from release notes
+  - path: github.com/kubernetes/kubectl
+    githubRelease:
+      slug: kubernetes/kubernetes
+      tag: v1.24.17
+      disableAutoChecksumValidation: true
+      http:
+        # The url parameter of http can interpolate the tag of the GitHub release using the {tag} token.
+        url: https://dl.k8s.io/release/{tag}/bin/linux/amd64/kubectl
+    permission: 0755
 
   - path: github.com/k3s-io/k3s
     githubRelease:
@@ -23,7 +32,7 @@ directories:
     githubRelease:
       slug: derailed/k9s
       tag: v0.28.0
-      disableAutoChecksumValidation: true 
+      disableAutoChecksumValidation: true
       assetNames: # only download specific assets (optional; v0.12.0+), see k3s declaration for details.
       - "k9s_Linux_amd64.tar.gz"
 
