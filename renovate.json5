@@ -20,9 +20,6 @@
   ], //See also possible support for multiple base branches, one per K8S minor version https://docs.renovatebot.com/configuration-options/#basebranches
   packageRules: [
     {
-      matchDatasources: [
-        'github-releases',
-      ],
       matchManagers: [
         'regex',
       ],
@@ -30,23 +27,7 @@
         'vendir.yml',
       ],
       addLabels: [
-        'vendir',
-        'github-release',
-      ],
-    },
-    {
-      matchDatasources: [
-        'github-tags',
-      ],
-      matchManagers: [
-        'regex',
-      ],
-      matchPaths: [
-        'vendir.yml',
-      ],
-      addLabels: [
-        'vendir',
-        'github-tags',
+        'bump-from/vendir',
       ],
     },
     {
