@@ -61,7 +61,7 @@
         ' +githubRelease:\\n +slug: (?<depName>[a-z0-9\\.\\/\\-]*?)\\n +tag: (?<currentValue>[a-z0-9\\.\\/\\-\\+]*?) *\\n',
       ],
       datasourceTemplate: 'github-releases',
-      versioningTemplate: 'regex:v?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)(-(?<build>[a-z0-9]+))?(\\+(?<compatibility>[a-z0-9]+))?$',
+      versioningTemplate: 'regex:v?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)(-(?<build>[a-z0-9]+))?(\\+(?<compatibility>[a-z0-9]+[a-z])(?<revision>[0-9]+))?$',
     },
     {
       fileMatch: [
