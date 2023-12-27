@@ -72,9 +72,13 @@ jobs:
           remote_repo="https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@${GITHUB_SERVER_URL#https://}/${GITHUB_REPOSITORY}.git"
           
           git add config/blobs.yml
-          ! git commit -a -m "updating blobs" && \
-           git --no-pager log --oneline -5 && \
-           git push ${remote_repo} HEAD:master
+          git status
+          if ! git commit -a --dry-run;then 
+            git commit -a -m "updating blobs" && \
+              git push ${remote_repo} HEAD:master
+          else
+            echo "Nothing to commit"
+          fi
       
 
       # TODO: optimize to only create a dev release if the blobs.yaml file has some changes
