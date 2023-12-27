@@ -73,6 +73,7 @@ jobs:
           
           git add config/blobs.yml
           ! git commit -a -m "updating blobs" && \
+           git --no-pager log --oneline -5 && \
            git push ${remote_repo} HEAD:master
       
 
