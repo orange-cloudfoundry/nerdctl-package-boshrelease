@@ -79,6 +79,7 @@ jobs:
           else
             echo "Nothing to commit"
           fi
+          tree -s blobs src
       
 
       # TODO: optimize to only create a dev release if the blobs.yaml file has some changes
