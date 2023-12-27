@@ -73,7 +73,7 @@ jobs:
           
           git add config/blobs.yml
           git status
-          if ! git commit -a --dry-run;then 
+          if git commit -a --dry-run;then 
             git commit -a -m "updating blobs" && \
               git push ${remote_repo} HEAD:master
           else
