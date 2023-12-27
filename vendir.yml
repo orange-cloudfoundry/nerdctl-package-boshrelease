@@ -1,13 +1,15 @@
 apiVersion: vendir.k14s.io/v1alpha1
 kind: Config
+
+minimumRequiredVersion: 0.34.0
 directories:
 # doc: https://carvel.dev/vendir/docs/v0.35.x/vendir-spec/
 
-- path: src 
+- path: src/github.com
   contents:
 
   # validates checksums automatically from release notes
-  - path: github.com/kubernetes/kubectl
+  - path: kubernetes/kubectl
     githubRelease:
       slug: kubernetes/kubernetes
       tag: v1.24.17
@@ -17,7 +19,7 @@ directories:
         url: https://dl.k8s.io/release/{tag}/bin/linux/amd64/kubectl
     permission: 0755
 
-  - path: github.com/k3s-io/k3s
+  - path: k3s-io/k3s
     githubRelease:
       slug: k3s-io/k3s
       tag: v1.24.17+k3s1 
@@ -28,7 +30,7 @@ directories:
       - "k3s-airgap-images-amd64.tar"
     # includePaths: # includes paths specify what should be included. by default all paths are included (optional)
 
-  - path: github.com/derailed/k9s
+  - path: derailed/k9s
     githubRelease:
       slug: derailed/k9s
       tag: v0.27.4
@@ -36,7 +38,7 @@ directories:
       assetNames: # only download specific assets (optional; v0.12.0+), see k3s declaration for details.
       - "k9s_Linux_amd64.tar.gz"
 
-  - path: github.com/containerd/nerdctl
+  - path: containerd/nerdctl
     githubRelease:
       slug: containerd/nerdctl
       tag: v1.3.1
