@@ -67,7 +67,7 @@ jobs:
           export VENDIR_GITHUB_API_TOKEN="${GITHUB_TOKEN}"
           ./vendor.sh
           git add vendir.lock
-          # FIXME: optimize for idem potentency 
+          # FIXME: optimize for idempotency 
           ./addblob.sh
           remote_repo="https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@${GITHUB_SERVER_URL#https://}/${GITHUB_REPOSITORY}.git"
           
@@ -79,7 +79,10 @@ jobs:
           else
             echo "Nothing to commit"
           fi
-          tree -s blobs src
+          tree -s src
+          if [ -d blobs ];then # The blobs dir is only present when a blob is modified or has not yet been published.
+            tree -s blobs
+          fi
       
 
       # TODO: optimize to only create a dev release if the blobs.yaml file has some changes
