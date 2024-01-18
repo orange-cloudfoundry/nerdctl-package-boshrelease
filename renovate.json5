@@ -29,6 +29,9 @@
       addLabels: [
         'bump-from/vendir',
       ],
+      automerge: true,
+      //see https://docs.renovatebot.com/key-concepts/automerge/#absence-of-tests
+      ignoreTests: true
     },
     {
       description: 'Get distinct branches for each minor, e.g. 1.22.x and 1.23.x. See https://docs.renovatebot.com/presets-default/#separatepatchreleases and https://docs.renovatebot.com/faq/#separate-patch-releases-from-minor-releases',
