@@ -96,7 +96,7 @@ jobs:
           fi
       - name: Extract nerdctl version
         id: extract_version
-        uses: orange-cloudfoundry/extract-vendir-version-action@v0.1.0
+        uses: orange-cloudfoundry/extract-vendir-version-action@v0.2.0
         with:
           library: "containerd/nerdctl"
       - name: create bosh final release
