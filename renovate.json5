@@ -10,6 +10,7 @@
     'manifests/**',
     'jobs/**',
   ],
+  automergeStrategy: "merge-commit",
   baseBranches: [
     // don't run on renovate branches
     "$default",
