@@ -1,6 +1,6 @@
 {
   $schema: 'https://docs.renovatebot.com/renovate-schema.json',
   extends: [
-    'github>orange-cloudfoundry/renovate-presets//bosh-release/default.json5' //common bosh renovate config, see https://docs.renovatebot.com/config-presets/
+    'github>orange-cloudfoundry/renovate-presets:bosh-release-default.json5' //common bosh renovate config
   ]
 }
