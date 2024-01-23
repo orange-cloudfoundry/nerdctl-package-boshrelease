@@ -101,7 +101,7 @@ jobs:
           library: "containerd/nerdctl"
       - name: create bosh final release
         id: create-bosh-release
-        uses: orange-cloudfoundry/create-bosh-release-action@5193049587144e6a0eae076feef0d4270843068b # v1.0.1
+        uses: orange-cloudfoundry/create-bosh-release-action@114f237653682479efe231f6d89e57096f8afe63 # v1.0.2
         with:
           target_branch: ${{github.ref_name}}
           tag_name: ${{ steps.extract_version.outputs.version }}
