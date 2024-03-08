@@ -20,7 +20,7 @@ function addBlobOnChecksumChange() {
 
 
 pushd src/github.com/containerd/nerdctl/
-tar xfv ./nerdctl-1.3.1-linux-amd64.tar.gz
+tar xfv ./nerdctl-*-linux-amd64.tar.gz
 popd
 
 addBlobOnChecksumChange src/github.com/containerd/nerdctl/nerdctl nerdctl/nerdctl
