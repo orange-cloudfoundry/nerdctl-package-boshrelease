@@ -36,7 +36,6 @@
     },
     {
       description: 'Add common labels',
-      matchDepPatterns: ['*'],
       addLabels: [
         // See full list of fields available at https://docs.renovatebot.com/templates/#other-available-fields
         'datasource/{{datasource}}',
