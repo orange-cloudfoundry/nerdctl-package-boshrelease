@@ -2,8 +2,8 @@ apiVersion: vendir.k14s.io/v1alpha1
 directories:
 - contents:
   - githubRelease:
-      tag: v1.7.7
-      url: https://api.github.com/repos/containerd/nerdctl/releases/174265345
+      tag: v2.0.3
+      url: https://api.github.com/repos/containerd/nerdctl/releases/195776669
     path: containerd/nerdctl
   path: src/github.com
 kind: LockConfig
