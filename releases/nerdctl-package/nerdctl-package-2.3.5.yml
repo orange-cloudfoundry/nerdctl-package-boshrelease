@@ -1,0 +1,22 @@
+name: nerdctl-package
+version: 2.3.5
+commit_hash: c13d9e6
+uncommitted_changes: true
+jobs:
+- name: nerdctl-package
+  version: d8fe336391caebb69d06cf4fd9fc4981575de57cb6712961d1c404b05a2a0333
+  fingerprint: d8fe336391caebb69d06cf4fd9fc4981575de57cb6712961d1c404b05a2a0333
+  sha1: sha256:1c184fd7f5d4abf335927d94dc8b32244c5ebe0543f5eeab6560ed085bfebcb1
+  packages:
+  - nerdctl
+packages:
+- name: nerdctl
+  version: f5bbed99dc23350703f5665a4649fa5f2ce1c03d502d02301e9094dfe882eb9f
+  fingerprint: f5bbed99dc23350703f5665a4649fa5f2ce1c03d502d02301e9094dfe882eb9f
+  sha1: sha256:873160072d7f010782d51819ce3de46f007057ca4bfd84a3abab9599fc267f3b
+  dependencies: []
+license:
+  version: cf0ca1fe65dee9607c7bb9460a3f20835e582cbb7f5b2c3625fba2e21d7e91b9
+  fingerprint: cf0ca1fe65dee9607c7bb9460a3f20835e582cbb7f5b2c3625fba2e21d7e91b9
+  sha1: sha256:c435d5eaa872c939cd97ad5a537c8ab2fdfc524185182daa0bde0b9309fcedb1
+no_compression: false
